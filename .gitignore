@@ -1,0 +1,10 @@
+# Ignorar la carpeta node_modules
+node_modules/
+
+# Ignorar las credenciales de Firebase
+firebase-key.json
+
+# Ignorar otros archivos sensibles o innecesarios
+.env
+.DS_Store
+*.log
