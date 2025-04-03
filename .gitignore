@@ -3,12 +3,9 @@ node_modules/
 
 # Ignorar las credenciales de Firebase
 
-<<<<<<< HEAD
 
 .env
-=======
->>>>>>> 42697669404ddaaf25f73100d51e430cd95b58bd
 # Ignorar otros archivos sensibles o innecesarios
 
 .DS_Store
-.log
+*.log
