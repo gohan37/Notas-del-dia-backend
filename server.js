@@ -1,24 +1,24 @@
-// filepath: c:\Users\Usuario\Desktop\backend\server.js
+/ filepath: c:\Users\Usuario\Desktop\backend\server.js
 require('dotenv').config();
 const express = require('express');
 const admin = require('firebase-admin');
 const cors = require('cors');
-
+console.log("🔍 Verificando claves de Firebase en process.env:");
+console.log("PROJECT_ID:", process.env.FIREBASE_PROJECT_ID);
+console.log("PRIVATE_KEY:", process.env.FIREBASE_PRIVATE_KEY ? "Cargada" : "No encontrada");
+console.log("CLIENT_EMAIL:", process.env.FIREBASE_CLIENT_EMAIL);
+dotenv.config();
 // Inicializar Firebase
-const serviceAccount = {
-    type: "service_account",
-    project_id: process.env.PROJECT_ID,
-    private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'), // Reemplaza \n por saltos de línea reales
-    client_email: process.env.CLIENT_EMAIL
-  };
-  
-  // Inicializar Firebase Admin
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
+admin.initializeApp({
+    credential: admin.credential.cert({
+      project_id: process.env.FIREBASE_PROJECT_ID,
+      private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      client_email: process.env.FIREBASE_CLIENT_EMAIL,
+    }),
   });
 
 
-
+  console.log("🚀 Firebase conectado con:", process.env.FIREBASE_PROJECT_ID);
 
 console.log("Project ID:", process.env.PROJECT_ID); 
 admin.initializeApp({
