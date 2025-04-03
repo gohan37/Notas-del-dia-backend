@@ -2,9 +2,10 @@
 node_modules/
 
 # Ignorar las credenciales de Firebase
-firebase-key.json
 
-# Ignorar otros archivos sensibles o innecesarios
+
 .env
+# Ignorar otros archivos sensibles o innecesarios
+
 .DS_Store
 *.log
