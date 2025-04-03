@@ -1,14 +1,18 @@
 // filepath: c:\Users\Usuario\Desktop\backend\server.js
+require('dotenv').config();
 const express = require('express');
 const admin = require('firebase-admin');
 const cors = require('cors');
 
 // Inicializar Firebase
-const serviceAccount = require('./firebase-key.json'); // Asegúrate de tener tu archivo de clave de Firebase
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://console.firebase.google.com/u/0/project/notas-del-dia/database/notas-del-dia-default-rtdb/data/~2F?hl=es', // Reemplaza con tu URL de Firebase
-});
+    credential: admin.credential.cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+    }),
+  });
+
 const PORT = 3000;
 const db = admin.firestore();
 
