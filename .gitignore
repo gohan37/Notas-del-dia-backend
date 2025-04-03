@@ -5,6 +5,6 @@ node_modules/
 firebase-key.json
 
 # Ignorar otros archivos sensibles o innecesarios
-.env
+
 .DS_Store
 *.log
