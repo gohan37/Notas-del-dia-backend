@@ -11,12 +11,11 @@ console.log("PRIVATE_KEY:", process.env.FIREBASE_PRIVATE_KEY ? "Cargada" : "No e
 console.log("CLIENT_EMAIL:", process.env.FIREBASE_CLIENT_EMAIL);
 
 // Inicializar Firebase (Solo una vez)
+const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
+
+// Inicializar Firebase
 admin.initializeApp({
-    credential: admin.credential.cert({
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      privateKey: process.env.FIREBASE_PRIVATE_KEY ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n') : undefined,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    }),
+  credential: admin.credential.cert(firebaseConfig)
 });
 
 console.log("🚀 Firebase conectado con:", process.env.FIREBASE_PROJECT_ID);
