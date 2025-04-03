@@ -6,4 +6,4 @@ node_modules/
 
 # Ignorar otros archivos sensibles o innecesarios
 .DS_Store
-*.log
+.log
