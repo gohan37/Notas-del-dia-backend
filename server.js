@@ -28,7 +28,7 @@ admin.initializeApp({
       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
     }),
   });
-const PORT = 3000;
+  const PORT = process.env.PORT || 3000; 
 const db = admin.firestore();
 
 const app = express();
